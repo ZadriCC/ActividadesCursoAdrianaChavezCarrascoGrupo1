@@ -1,0 +1,104 @@
+1.Usuarios
+idUsuario PK
+uNombre
+uApellidos
+uEmail UNIQUE(para que no haya conflicto con cuentas)
+uPassword
+uRol(comprador o vendedor)
+uFechaRegistro
+
+2.DetalleUsuario
+idDUsuario PK
+idUsuario FK
+duDireccion
+duTelefono
+
+3.PerfilVendedor
+idVendedor PK
+idUsuario FK
+vNombre(ya sea solo nombre de la persona o nombre de la tienda)
+vGiro
+vDescripción
+vSitoWeb null
+
+4.Productos
+idProducto PK
+pNombre
+pDescripcion
+pPrecio
+pStock
+
+5.DetallesProducto
+idDProducto PK
+idProducto FK
+dpAtributo (puede ser el tipo de material, el color, etc.)
+dpValor (seria el valor del atributo, por ejemplo si el atributo es material el valor seria madera)
+
+6.PerfilVendedor_has_Poductos
+idVendedor FK
+idProducto FK
+
+7.Categorias
+idCategoria PK
+ctTitulo
+
+8.Subcategoria
+idSubcategoria PK
+idCategoria FK
+scTitulo
+
+9.Categorias_has_Productos
+idCategoria FK
+idPoducto FK
+
+10.Pedidos
+idPedido PK
+idUsuario FK (para saber de quien es el pedido)
+idVendedor FK (para saber quien envia la compra)
+pdEstado (pendiente, procesado, enviado)
+pdNotasCliente (puede ser que deje alguna referencia o preferencia de color, etc.)
+pdNoSeguimiento null (solo aplica si ya se pago el pedido)
+pdSubtotal
+pdTotal
+
+11.DetallePedido
+idDPedido PK
+idPedido FK
+idProducto FK (para saber que productos pidio)
+dtpCantidad (se refiere a la cantidad de articulos)
+dtpTotal (se refiere al precio total de la cantidad por producto)
+
+12.Reseñas
+idReseña PK
+idUsuario FK
+idProducto FK
+rPuntuacion(es una valoración que va del 1 al 5)
+rComentario
+rFecha(fecha en la que se publico la reseña)
+
+13.Notificaciones
+idNotificacion PK
+idUsuario FK
+nDescripcion
+nFecha
+
+14.Transacciones
+idTransaccion PK
+idMetodoPago FK
+idMetodoEnvio FK
+idPedido FK
+tFecha
+tDireccion
+tTotal
+
+15.MetodosPagos
+idMPago PK
+mpTipo (puede ser por tarjetas, servicios de terceros como paypal, transferencias, etc)
+
+16.MetodosEnvios
+idMetodoEnvio PK
+meTipo (como ejemplo podria ser envio express, estandar o recoger en tienda)
+
+
+
+
