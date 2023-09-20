@@ -1,0 +1,9 @@
+Para realizar este proyecto segui varios tutoriales de internet y me apoye de paginas para entender los conceptos,
+yo solo sabia lo basio de programación en java per nunca habia visto nada de Spring Boot, al principio fue sensillo
+con esto me refiero a realizar el crud y el manejo de las excepsiones, pero al momento de aplicar lo de la seguridad
+fue donde me trabe, primero cuando instale la dependencia de Spring security probe la api en postman y me daba un error 401
+al investigar vi que cuando se agrega la dependencia da como cierta seguridad donde solo se pueden hacer consultas Get
+pero si se quiere ingresar o modificar algo te deniega el permiso, asi que procedi a realizar la configuración de una clase 
+llamada SecurityConfig y ahi empezo mi martirio pues no me reconocia las propiedades como el WebSecurityConfigurerAdapter,
+despues de buscar mucho que es por la incompatibilidad de versiones y que esa propiedad ya es obsoleta, asi que procedi a realizar
+lo de JWT pero solo crecio mas mi confusión y pues ahi me quede. 
