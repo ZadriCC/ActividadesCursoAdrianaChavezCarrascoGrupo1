@@ -71,8 +71,10 @@ public class DetalleUsuario {
 	public DetalleUsuario() {
 		super();
 	}
+  
+	public DetalleUsuario(int idDUsuario, @NotNull String duDireccion, @NotNull String duTelefono,
+			Usuarios usuarios) {
 
-	public DetalleUsuario(int idDUsuario, @NotNull String duDireccion, @NotNull String duTelefono, Usuarios usuarios) {
 		super();
 		this.idDUsuario = idDUsuario;
 		this.duDireccion = duDireccion;

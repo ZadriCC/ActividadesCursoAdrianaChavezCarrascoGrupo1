@@ -35,7 +35,6 @@ public class ProductosDTO {
 	private Set<DetalleProducto> dtProductos;
 
 	private Subcategoria subcategoria;
-
 	public int getIdProducto() {
 		return idProducto;
 	}
@@ -115,7 +114,6 @@ public class ProductosDTO {
 	public void setSubcategoria(Subcategoria subcategoria) {
 		this.subcategoria = subcategoria;
 	}
-
 	public ProductosDTO() {
 		super();
 	}

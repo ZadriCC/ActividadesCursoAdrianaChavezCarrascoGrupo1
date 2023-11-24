@@ -53,10 +53,10 @@ public class Pedidos {
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Usuarios usuarios;
 
-//	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-//	@JoinColumn(name = "idVendedor")
-//	@JsonProperty(access = Access.WRITE_ONLY)
-//	private PerfilVendedor perfilVendedor;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "idVendedor")
+	@JsonProperty(access = Access.WRITE_ONLY)
+	private PerfilVendedor perfilVendedor;
 
 	@OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
 	private Transacciones transacciones;
@@ -120,6 +120,13 @@ public class Pedidos {
 		this.usuarios = usuarios;
 	}
 
+	public PerfilVendedor getVendedor() {
+		return perfilVendedor;
+	}
+
+	public void setVendedor(PerfilVendedor vendedor) {
+		this.perfilVendedor = vendedor;
+	}
 	public Transacciones getTransacciones() {
 		return transacciones;
 	}
@@ -150,5 +157,6 @@ public class Pedidos {
 		this.pdSubtotal = pdSubtotal;
 		this.pdTotal = pdTotal;
 		this.usuarios = usuarios;
+		this.perfilVendedor = vendedor;
 	}
 }

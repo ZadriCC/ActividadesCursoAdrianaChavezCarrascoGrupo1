@@ -152,6 +152,7 @@ public class Productos {
 	public Productos(@NotNull int idProducto, @NotNull String pNombre, @NotNull String pDescripcion,
 			@NotNull double pPrecio, @NotNull int pStock, Set<Reseñas> reseñas, Set<PerfilVendedor> vendedor,
 			Set<DetallePedido> detallePedido, Set<DetalleProducto> dtProductos, Subcategoria subcategoria) {
+
 		super();
 		this.idProducto = idProducto;
 		this.pNombre = pNombre;
