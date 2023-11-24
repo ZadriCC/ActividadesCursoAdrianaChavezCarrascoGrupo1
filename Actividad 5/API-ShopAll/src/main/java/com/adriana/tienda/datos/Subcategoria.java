@@ -22,7 +22,6 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 @Table(name = "Subcategoria")
 public class Subcategoria {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull
@@ -37,7 +36,6 @@ public class Subcategoria {
 	@JoinColumn(name = "idCategoria")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Categoria categoria;
-
 	@OneToMany(mappedBy = "subcategoria", cascade = CascadeType.ALL)
 	private Set<Productos> productos = new HashSet<>();
 

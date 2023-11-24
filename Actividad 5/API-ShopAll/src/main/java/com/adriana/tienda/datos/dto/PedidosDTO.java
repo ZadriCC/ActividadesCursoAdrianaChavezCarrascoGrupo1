@@ -3,6 +3,7 @@ package com.adriana.tienda.datos.dto;
 import java.util.Set;
 
 import com.adriana.tienda.datos.DetallePedido;
+import com.adriana.tienda.datos.PerfilVendedor;
 import com.adriana.tienda.datos.Transacciones;
 import com.adriana.tienda.datos.Usuarios;
 
@@ -30,7 +31,7 @@ public class PedidosDTO {
 
 	private Usuarios usuarios;
 
-//	private PerfilVendedor vendedor;
+	private PerfilVendedor vendedor;
 
 	private Transacciones transacciones;
 
@@ -92,6 +93,13 @@ public class PedidosDTO {
 		this.usuarios = usuarios;
 	}
 
+	public PerfilVendedor getVendedor() {
+		return vendedor;
+	}
+
+	public void setVendedor(PerfilVendedor vendedor) {
+		this.vendedor = vendedor;
+	}
 	public Transacciones getTransacciones() {
 		return transacciones;
 	}
