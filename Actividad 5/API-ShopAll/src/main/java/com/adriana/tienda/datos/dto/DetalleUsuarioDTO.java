@@ -2,7 +2,6 @@ package com.adriana.tienda.datos.dto;
 
 import com.adriana.tienda.datos.Usuarios;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -15,8 +14,11 @@ public class DetalleUsuarioDTO {
 	@NotEmpty
 	@Size(min = 10, max = 140)
 	private String duDireccion;
+	@NotEmpty(message = "El campo dirección no debe estar vacio")
+	@Size(min = 10, max = 140)
+	private String duDireccion;
 
-	@NotEmpty
+	@NotEmpty(message = "El campo teléfono no debe estar vacio")
 	@Size(min = 10, max = 16)
 	@Pattern(regexp = "\\d{10,16}", message = "El teléfono debe tener entre 10 y 16 dígitos")
 	private String duTelefono;

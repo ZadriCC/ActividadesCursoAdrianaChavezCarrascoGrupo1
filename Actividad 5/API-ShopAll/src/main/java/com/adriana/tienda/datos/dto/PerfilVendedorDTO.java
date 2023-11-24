@@ -8,6 +8,10 @@ import com.adriana.tienda.datos.DetallePedido;
 import com.adriana.tienda.datos.Productos;
 import com.adriana.tienda.datos.Usuarios;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.adriana.tienda.datos.DetallePedido;
+import com.adriana.tienda.datos.Pedidos;
+import com.adriana.tienda.datos.Productos;
+import com.adriana.tienda.datos.Usuarios;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -30,11 +34,11 @@ public class PerfilVendedorDTO {
 	private String vDescripcion;
 
 	@Size(max = 150)
-	@URL
 	private String vSitioWeb;
 
-	private Usuarios vendedor;
+	private Usuarios usuarios;
 
+	private Set<Pedidos> pedidos;
 	private Set<Productos> producto;
 	private Set<DetallePedido> dtpedidos;
 
@@ -78,12 +82,20 @@ public class PerfilVendedorDTO {
 		this.vSitioWeb = vSitioWeb;
 	}
 
-	public Usuarios getVendedor() {
-		return vendedor;
+	public Usuarios getUsuarios() {
+		return usuarios;
 	}
 
-	public void setVendedor(Usuarios vendedor) {
-		this.vendedor = vendedor;
+	public void setUsuarios(Usuarios usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public Set<Pedidos> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(Set<Pedidos> pedidos) {
+		this.pedidos = pedidos;
 	}
 
 	public Set<Productos> getProducto() {

@@ -21,7 +21,6 @@ public class DetallePedidoDTO {
 	private Pedidos pedido;
 
 	private Productos producto;
-
 	private PerfilVendedor vendedor;
 
 	public int getIdDPedido() {

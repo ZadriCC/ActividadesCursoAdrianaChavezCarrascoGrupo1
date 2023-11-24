@@ -51,10 +51,10 @@ public class PerfilVendedor {
 	@JoinColumn(name = "idUsuario")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Usuarios vendedor;
-
-//	@OneToMany(mappedBy = "perfilVendedor", cascade = CascadeType.ALL)
-//	private Set<Pedidos> pedidos = new HashSet<>();
-
+  
+	@OneToMany(mappedBy = "perfilVendedor", cascade = CascadeType.ALL)
+	private Set<Pedidos> pedidos = new HashSet<>();
+  
 	@OneToMany(mappedBy = "vendedor", cascade = CascadeType.ALL)
 	private Set<DetallePedido> dtpedidos = new HashSet<>();
 
@@ -109,6 +109,14 @@ public class PerfilVendedor {
 
 	public void setVendedor(Usuarios vendedor) {
 		this.vendedor = vendedor;
+	}
+
+	public Set<Pedidos> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(Set<Pedidos> pedidos) {
+		this.pedidos = pedidos;
 	}
 
 	public Set<Productos> getProducto() {
