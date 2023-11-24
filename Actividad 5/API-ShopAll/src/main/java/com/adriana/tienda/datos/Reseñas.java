@@ -38,12 +38,12 @@ public class Reseñas {
 	@Column(name = "rFecha")
 	private Date rFecha;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "idUsuario")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Usuarios usuarios;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "idProducto")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Productos productos;

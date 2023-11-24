@@ -52,9 +52,6 @@ public class MetodoEnvio {
 
 	public void setTransacciones(Set<Transacciones> transacciones) {
 		this.transacciones = transacciones;
-		for (Transacciones transaccion : transacciones) {
-			transaccion.setMetodoEnvio(this);
-		}
 	}
 
 	public MetodoEnvio() {

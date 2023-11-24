@@ -33,7 +33,7 @@ public class PerfilVendedor {
 	private int idVendedor;
 
 	@NotNull
-	@Column(name = "vNombre", length = 45)
+	@Column(name = "vNombre", length = 45, unique = true)
 	private String vNombre;
 
 	@NotNull
@@ -47,14 +47,14 @@ public class PerfilVendedor {
 	@Column(name = "vSitioWeb", length = 150)
 	private String vSitioWeb;
 
-	@OneToOne(fetch = FetchType.LAZY, optional = false)
+	@OneToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "idUsuario")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Usuarios vendedor;
-
+  
 	@OneToMany(mappedBy = "perfilVendedor", cascade = CascadeType.ALL)
 	private Set<Pedidos> pedidos = new HashSet<>();
-	
+  
 	@OneToMany(mappedBy = "vendedor", cascade = CascadeType.ALL)
 	private Set<DetallePedido> dtpedidos = new HashSet<>();
 
@@ -117,9 +117,6 @@ public class PerfilVendedor {
 
 	public void setPedidos(Set<Pedidos> pedidos) {
 		this.pedidos = pedidos;
-		for (Pedidos pedido : pedidos) {
-			pedido.setVendedor(this);
-		}
 	}
 
 	public Set<Productos> getProducto() {

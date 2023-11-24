@@ -2,6 +2,12 @@ package com.adriana.tienda.datos.dto;
 
 import java.util.Set;
 
+import org.hibernate.validator.constraints.URL;
+
+import com.adriana.tienda.datos.DetallePedido;
+import com.adriana.tienda.datos.Productos;
+import com.adriana.tienda.datos.Usuarios;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.adriana.tienda.datos.DetallePedido;
 import com.adriana.tienda.datos.Pedidos;
 import com.adriana.tienda.datos.Productos;
@@ -10,6 +16,7 @@ import com.adriana.tienda.datos.Usuarios;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+@JsonIgnoreProperties({ "vendedor", "producto", "dtpedidos" })
 public class PerfilVendedorDTO {
 
 	private int idVendedor;

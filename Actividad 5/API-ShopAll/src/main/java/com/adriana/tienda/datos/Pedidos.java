@@ -37,7 +37,7 @@ public class Pedidos {
 	@Column(name = "pdNotasCliente", length = 140)
 	private String pdNotasCliente;
 
-	@Column(name = "pdNoSeguimiento", length = 25, unique = true)
+	@Column(name = "pdNoSeguimiento", length = 25)
 	private String pdNoSeguimiento;
 
 	@NotNull
@@ -48,7 +48,7 @@ public class Pedidos {
 	@Column(name = "pdTotal")
 	private double pdTotal;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "idUsuario")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Usuarios usuarios;
@@ -127,15 +127,6 @@ public class Pedidos {
 	public void setVendedor(PerfilVendedor vendedor) {
 		this.perfilVendedor = vendedor;
 	}
-
-	public PerfilVendedor getPerfilVendedor() {
-		return perfilVendedor;
-	}
-
-	public void setPerfilVendedor(PerfilVendedor perfilVendedor) {
-		this.perfilVendedor = perfilVendedor;
-	}
-
 	public Transacciones getTransacciones() {
 		return transacciones;
 	}
@@ -157,7 +148,7 @@ public class Pedidos {
 	}
 
 	public Pedidos(@NotNull int idPedido, @NotNull String pdEstado, String pdNotasCliente, String pdNoSeguimiento,
-			@NotNull double pdSubtotal, @NotNull double pdTotal, Usuarios usuarios, PerfilVendedor vendedor) {
+			@NotNull double pdSubtotal, @NotNull double pdTotal, Usuarios usuarios) {
 		super();
 		this.idPedido = idPedido;
 		this.pdEstado = pdEstado;

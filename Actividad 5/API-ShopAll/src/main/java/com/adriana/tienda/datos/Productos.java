@@ -60,7 +60,7 @@ public class Productos {
 	@OneToMany(mappedBy = "productos", cascade = CascadeType.ALL)
 	private Set<DetalleProducto> dtProductos = new HashSet<>();
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "idSubcategoria")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Subcategoria subcategoria;
@@ -111,9 +111,6 @@ public class Productos {
 
 	public void setReseñas(Set<Reseñas> reseñas) {
 		this.reseñas = reseñas;
-		for (Reseñas reseña : reseñas) {
-			reseña.setProductos(this);
-		}
 	}
 
 	public Set<PerfilVendedor> getVendedor() {
@@ -130,9 +127,6 @@ public class Productos {
 
 	public void setDetallePedido(Set<DetallePedido> detallePedido) {
 		this.detallePedido = detallePedido;
-		for (DetallePedido dPedido : detallePedido) {
-			dPedido.setProducto(this);
-		}
 	}
 
 	public Set<DetalleProducto> getDtProductos() {
@@ -147,13 +141,28 @@ public class Productos {
 		super();
 	}
 
+	public Subcategoria getSubcategoria() {
+		return subcategoria;
+	}
+
+	public void setSubcategoria(Subcategoria subcategoria) {
+		this.subcategoria = subcategoria;
+	}
+
 	public Productos(@NotNull int idProducto, @NotNull String pNombre, @NotNull String pDescripcion,
-			@NotNull double pPrecio, @NotNull int pStock) {
+			@NotNull double pPrecio, @NotNull int pStock, Set<Reseñas> reseñas, Set<PerfilVendedor> vendedor,
+			Set<DetallePedido> detallePedido, Set<DetalleProducto> dtProductos, Subcategoria subcategoria) {
+
 		super();
 		this.idProducto = idProducto;
 		this.pNombre = pNombre;
 		this.pDescripcion = pDescripcion;
 		this.pPrecio = pPrecio;
 		this.pStock = pStock;
+		this.reseñas = reseñas;
+		this.vendedor = vendedor;
+		this.detallePedido = detallePedido;
+		this.dtProductos = dtProductos;
+		this.subcategoria = subcategoria;
 	}
 }

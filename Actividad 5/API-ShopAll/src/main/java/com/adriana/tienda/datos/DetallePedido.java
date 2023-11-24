@@ -17,35 +17,34 @@ import jakarta.validation.constraints.NotNull;
 @Entity
 @Table(name = "DetallePedido")
 public class DetallePedido {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull
-	@Column(name = "idDPedido")
-	private int idDPedido;
-	
-	@NotNull
-	@Column(name = "dtpCantidad")
-	private int dtpCantidad;
-	
-	@NotNull
-	@Column(name = "dtpTotal")
-	private double dtpTotal;
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "idPedido")
-	@JsonProperty(access = Access.WRITE_ONLY)
-	private Pedidos pedido;
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "idVendedor")
-	@JsonProperty(access = Access.WRITE_ONLY)
-	private PerfilVendedor vendedor;
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "idProducto")
-	@JsonProperty(access = Access.WRITE_ONLY)
-	private Productos producto;
+@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
+    @Column(name = "idDPedido")
+    private int idDPedido;
+
+    @NotNull
+    @Column(name = "dtpCantidad")
+    private int dtpCantidad;
+
+    @NotNull
+    @Column(name = "dtpTotal")
+    private double dtpTotal;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "idPedido")
+    @JsonProperty(access = Access.WRITE_ONLY)
+    private Pedidos pedido;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "idVendedor")
+    @JsonProperty(access = Access.WRITE_ONLY)
+    private PerfilVendedor vendedor;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "idProducto")
+    @JsonProperty(access = Access.WRITE_ONLY)
+    private Productos producto;
 
 	public int getIdDPedido() {
 		return idDPedido;
@@ -87,17 +86,27 @@ public class DetallePedido {
 		this.producto = producto;
 	}
 
+
+	public PerfilVendedor getVendedor() {
+		return vendedor;
+	}
+
+	public void setVendedor(PerfilVendedor vendedor) {
+		this.vendedor = vendedor;
+	}
+  
 	public DetallePedido() {
 		super();
 	}
 
-	public DetallePedido(@NotNull int idDPedido, @NotNull int dtpCantidad, @NotNull double dtpTotal, Pedidos pedido,
-			Productos producto) {
-		super();
-		this.idDPedido = idDPedido;
-		this.dtpCantidad = dtpCantidad;
-		this.dtpTotal = dtpTotal;
-		this.pedido = pedido;
-		this.producto = producto;
-	}
+  public DetallePedido(@NotNull int idDPedido, @NotNull int dtpCantidad, @NotNull double dtpTotal, Pedidos pedido,
+            PerfilVendedor vendedor, Productos producto) {
+        super();
+        this.idDPedido = idDPedido;
+        this.dtpCantidad = dtpCantidad;
+        this.dtpTotal = dtpTotal;
+        this.pedido = pedido;
+        this.vendedor = vendedor;
+        this.producto = producto;
+    }
 }

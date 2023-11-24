@@ -100,7 +100,6 @@ public class PedidosDTO {
 	public void setVendedor(PerfilVendedor vendedor) {
 		this.vendedor = vendedor;
 	}
-
 	public Transacciones getTransacciones() {
 		return transacciones;
 	}

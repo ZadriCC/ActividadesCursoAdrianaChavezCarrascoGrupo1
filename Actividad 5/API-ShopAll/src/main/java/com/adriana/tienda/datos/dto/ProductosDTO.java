@@ -5,6 +5,7 @@ import java.util.Set;
 import com.adriana.tienda.datos.DetallePedido;
 import com.adriana.tienda.datos.DetalleProducto;
 import com.adriana.tienda.datos.PerfilVendedor;
+import com.adriana.tienda.datos.Subcategoria;
 import com.adriana.tienda.datos.Transacciones;
 
 import jakarta.validation.constraints.NotEmpty;
@@ -33,6 +34,7 @@ public class ProductosDTO {
 	private Set<PerfilVendedor> vendedor;
 	private Set<DetalleProducto> dtProductos;
 
+	private Subcategoria subcategoria;
 	public int getIdProducto() {
 		return idProducto;
 	}
@@ -105,6 +107,13 @@ public class ProductosDTO {
 		this.dtProductos = dtProductos;
 	}
 
+	public Subcategoria getSubcategoria() {
+		return subcategoria;
+	}
+
+	public void setSubcategoria(Subcategoria subcategoria) {
+		this.subcategoria = subcategoria;
+	}
 	public ProductosDTO() {
 		super();
 	}

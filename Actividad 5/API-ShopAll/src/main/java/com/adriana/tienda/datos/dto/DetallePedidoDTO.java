@@ -3,9 +3,11 @@ package com.adriana.tienda.datos.dto;
 import com.adriana.tienda.datos.Pedidos;
 import com.adriana.tienda.datos.PerfilVendedor;
 import com.adriana.tienda.datos.Productos;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.validation.constraints.NotEmpty;
 
+@JsonIgnoreProperties({ "pedido", "producto", "vendedor" })
 public class DetallePedidoDTO {
 
 	private int idDPedido;
@@ -19,7 +21,6 @@ public class DetallePedidoDTO {
 	private Pedidos pedido;
 
 	private Productos producto;
-	
 	private PerfilVendedor vendedor;
 
 	public int getIdDPedido() {

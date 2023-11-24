@@ -52,9 +52,6 @@ public class MetodoPago {
 
 	public void setTransacciones(Set<Transacciones> transacciones) {
 		this.transacciones = transacciones;
-		for (Transacciones transaccion : transacciones) {
-			transaccion.setMetodoPago(this);
-		}
 	}
 
 	public MetodoPago() {

@@ -17,25 +17,25 @@ public class UsuariosDTO {
 
 	private int idUsuario;
 
-	@NotEmpty(message = "El campo nombre no debe estar vacio")
+	@NotEmpty
 	@Size(min = 5, max = 45)
 	private String uNombre;
 
-	@NotEmpty(message = "El campo Apellidos no debe estar vacio")
+	@NotEmpty
 	@Size(min = 5, max = 45)
 	private String uApellidos;
 
-	@NotEmpty(message = "El campo email no debe estar vacio")
+	@NotEmpty
 	@Size(min = 5, max = 45)
 	@Email
 	private String uEmail;
 
-	@NotEmpty(message = "El campo contraseña no debe estar vacio")
-	@Size(min = 7, max = 8, message = "La contraseña debe tener 8 digitos")
+	@NotEmpty
+	@Size(min = 8, max = 8)
 	private String uPassword;
 
-	@NotEmpty(message = "El campo rol no debe estar vacio")
-	@Pattern(regexp = "^(comprador|vendedor$", message = "El rol debe ser comprador o vendedor")
+	@NotEmpty
+	@Pattern(regexp = "^(comprador|vendedor$")
 	private String uRol;
 
 	@NotEmpty

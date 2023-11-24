@@ -18,25 +18,24 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+
 @Entity
 @Table(name = "Subcategoria")
 public class Subcategoria {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull
 	@Column(name = "idSubcategoria")
 	private int idSubcategoria;
-	
+
 	@NotNull
 	@Column(name = "scTitulo", length = 45)
 	private String scTitulo;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
+
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idCategoria")
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private Categoria categoria;
-	
 	@OneToMany(mappedBy = "subcategoria", cascade = CascadeType.ALL)
 	private Set<Productos> productos = new HashSet<>();
 

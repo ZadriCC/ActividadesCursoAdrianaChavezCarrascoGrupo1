@@ -1,13 +1,19 @@
 package com.adriana.tienda.datos.dto;
 
+import com.adriana.tienda.datos.Usuarios;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
+@JsonIgnoreProperties({ "usuarios" })
 public class DetalleUsuarioDTO {
 
 	private int idDUsuario;
 
+	@NotEmpty
+	@Size(min = 10, max = 140)
+	private String duDireccion;
 	@NotEmpty(message = "El campo dirección no debe estar vacio")
 	@Size(min = 10, max = 140)
 	private String duDireccion;
@@ -17,7 +23,7 @@ public class DetalleUsuarioDTO {
 	@Pattern(regexp = "\\d{10,16}", message = "El teléfono debe tener entre 10 y 16 dígitos")
 	private String duTelefono;
 
-	//private Usuarios usuarios;
+	private Usuarios usuarios;
 
 	public int getIdDUsuario() {
 		return idDUsuario;
@@ -43,13 +49,13 @@ public class DetalleUsuarioDTO {
 		this.duTelefono = duTelefono;
 	}
 
-//	public Usuarios getUsuarios() {
-//		return usuarios;
-//	}
-//
-//	public void setUsuarios(Usuarios usuarios) {
-//		this.usuarios = usuarios;
-//	}
+	public Usuarios getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(Usuarios usuarios) {
+		this.usuarios = usuarios;
+	}
 
 	public DetalleUsuarioDTO() {
 		super();
